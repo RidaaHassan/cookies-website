@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crumble & Crave | Order Checkout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+      --primary: #5c3d2e;
+      --primary-hover: #432b20;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --bg-light: #fffdf7;
+      --bg-card: #ffffff;
+      --text-main: #2d1e18;
+      --text-muted: #6b5b52;
+      --border: #e5d8cc;
+      --shadow: 0 10px 25px -5px rgba(92, 61, 46, 0.08), 0 8px 10px -6px rgba(92, 61, 46, 0.04);
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--primary);
+      background-color: #f7f1eb;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .order-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .summary-row.total {
+      border-top: 2px dashed var(--border);
+      padding-top: 1rem;
+      margin-top: 1rem;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: var(--text-main);
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    footer {
+      background-color: var(--primary);
+      color: #f7f1eb;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .order-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">🍪 Crumble<span>&</span>Crave</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Cookie Info</a></li>
+          <li><a href="order.html" class="active">Order Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="order-grid">
+      <div class="card">
+        <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Order Summary</h2>
+        <div class="summary-row">
+          <span>Product:</span>
+          <strong>The Signature Jumbo Cookie</strong>
+        </div>
+        <div class="summary-row">
+          <span>Flavor Selected:</span>
+          <strong id="summary-flavor">Classic Chocolate Chunk</strong>
+        </div>
+        <div class="summary-row">
+          <span>Quantity:</span>
+          <strong id="summary-qty">1</strong>
+        </div>
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="summary-subtotal">$4.50</span>
+        </div>
+        <div class="summary-row">
+          <span>Est. Delivery Fee:</span>
+          <span>$2.50</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total Amount:</span>
+          <span id="summary-total">$7.00</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="color: var(--primary); margin-bottom: 1.5rem;">Delivery Details</h2>
+        <form id="checkout-form">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" required placeholder="Jane Doe">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required placeholder="jane@example.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" required placeholder="(555) 000-0000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address">Street Address</label>
+            <textarea id="address" rows="3" required placeholder="123 Bakery Lane, Apt 4B"></textarea>
+          </div>
+          <button type="submit" class="btn" style="width: 100%;">Place Cookie Order</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Crumble & Crave Bakery. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
