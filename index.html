@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crumble & Crave | Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Reset & Color Palette */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+      --primary: #5c3d2e;
+      --primary-hover: #432b20;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --bg-light: #fffdf7;
+      --bg-card: #ffffff;
+      --text-main: #2d1e18;
+      --text-muted: #6b5b52;
+      --border: #e5d8cc;
+      --shadow: 0 10px 25px -5px rgba(92, 61, 46, 0.08), 0 8px 10px -6px rgba(92, 61, 46, 0.04);
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--primary);
+      background-color: #f7f1eb;
+    }
+
+    /* Main Layout & Buttons */
+    main {
+      flex: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 2rem 0;
+    }
+
+    .hero-content h1 {
+      font-size: 2.75rem;
+      color: var(--primary);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Features Grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .feature-card {
+      background-color: var(--bg-card);
+      padding: 1.75rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .feature-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary);
+      color: #f7f1eb;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .hero, .features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">🍪 Crumble<span>&</span>Crave</a>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="product.html">Cookie Info</a></li>
+          <li><a href="order.html">Order Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Meet The Signature Cookie</h1>
+        <p>Thick, soft-baked, and loaded with premium ingredients. Handcrafted fresh every single morning in small batches.</p>
+        <a href="product.html" class="btn">Explore Flavors & Order</a>
+      </div>
+      <div class="hero-image">
+        <img src="cookie.webp" alt="Signature Cookie">
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="feature-card">
+        <h3>🌱 Organic Ingredients</h3>
+        <p>Made with grass-fed butter, organic brown sugar, and single-origin chocolate chunks.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🔥 Freshly Baked Daily</h3>
+        <p>Baked fresh every morning to ensure soft, melt-in-your-mouth perfection.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🚀 Express Delivery</h3>
+        <p>Delivered warm directly to your doorstep in eco-friendly protective packaging.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Crumble & Crave Bakery. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
